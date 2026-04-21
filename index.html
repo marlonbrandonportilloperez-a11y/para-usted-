@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Usted</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital@1&display=swap');
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: auto; background-color: #fff5f7; font-family: 'Playfair Display', serif; }
+        #pantalla-bienvenida { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffb7c5; display: flex; justify-content: center; align-items: center; z-index: 10; cursor: pointer; transition: opacity 1s ease; text-align: center; padding: 20px; box-sizing: border-box; }
+        .mensaje-entrada { color: white; font-size: 2.5rem; animation: aparecerSuave 2s ease-in-out; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        #contenido-sorpresa { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; opacity: 0; transition: opacity 2s ease; padding: 40px 20px; box-sizing: border-box; }
+        .area-visual { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .foto-dedicatoria { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+        .contenedor-flores { position: relative; height: 200px; width: 150px; display: flex; justify-content: center; }
+        .tulipan { position: relative; }
+        .tulipan .tallo { width: 6px; height: 100px; background-color: #556b2f; border-radius: 5px; margin-top: 40px; }
+        .tulipan .capullo { position: absolute; top: 0; left: -15px; width: 40px; height: 50px; background: #ff4d6d; border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%; box-shadow: inset 8px 0 15px rgba(0,0,0,0.1); }
+        .tulipan .capullo::after, .tulipan .capullo::before { content: ''; position: absolute; width: 25px; height: 45px; background: #ff758f; border-radius: 50%; top: 0; }
+        .tulipan .capullo::after { left: -8px; transform: rotate(-15deg); }
+        .tulipan .capullo::before { right: -8px; transform: rotate(15deg); }
+        .hoja { position: absolute; width: 30px; height: 60px; background: #6b8e23; border-radius: 0 100% 0 100%; bottom: 40px; left: 5px; transform: rotate(-30deg); }
+        .carta-romantica { max-width: 600px; text-align: center; color: #4a4a4a; font-size: 1.2rem; line-height: 1.6; margin-top: 10px; padding: 20px; }
+        .carta-romantica h2 { font-family: 'Dancing Script', cursive; color: #d63384; font-size: 2.8rem; margin-bottom: 15px; }
+        @keyframes aparecerSuave { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) { .mensaje-entrada { font-size: 1.8rem; } .area-visual { flex-direction: column-reverse; gap: 10px; } .foto-dedicatoria { width: 200px; height: 200px; } .carta-romantica { font-size: 1.1rem; } .carta-romantica h2 { font-size: 2.3rem; } }
+    </style>
+</head>
+<body>
+    <div id="pantalla-bienvenida" onclick="revelarSorpresa()">
+        <h1 class="mensaje-entrada">Un día llegó usted... <br> y todo comenzó a ser mejor. <br><br> <span style="font-size: 1rem;">(Presione aquí)</span></h1>
+    </div>
+    <div id="contenido-sorpresa">
+        <div class="area-visual">
+            <div class="contenedor-flores">
+                <div class="tulipan" style="transform: rotate(-15deg); left: -20px;"><div class="capullo" style="background: #ff8fa3;"></div><div class="tallo"></div><div class="hoja"></div></div>
+                <div class="tulipan" style="z-index: 2;"><div class="capullo"></div><div class="tallo"></div></div>
+            </div>
+            <img src="foto_novia.jpg" alt="Su hermosa presencia" class="foto-dedicatoria">
+            <div class="contenedor-flores">
+                <div class="tulipan" style="transform: rotate(15deg); right: -20px;"><div class="capullo" style="background: #c9184a;"></div><div class="tallo"></div><div class="hoja" style="left: -10px; transform: scaleX(-1) rotate(-30deg);"></div></div>
+            </div>
+        </div>
+        <div class="carta-romantica">
+            <h2>Para usted, mi vida</h2>
+            <p>Acepto que mi mundo cambió desde el instante en que usted decidió formar parte de él. Cada día a su lado es un recordatorio de la suerte que tengo. Gracias por la elegancia de su presencia y por transformar mis días en algo mucho más brillante. Su sonrisa es la luz que guía mi camino.</p>
+        </div>
+    </div>
+    <script>
+        function revelarSorpresa() {
+            const bienvenida = document.getElementById('pantalla-bienvenida');
+            const contenido = document.getElementById('contenido-sorpresa');
+            bienvenida.style.opacity = '0';
+            setTimeout(() => { bienvenida.style.display = 'none'; contenido.style.opacity = '1'; document.body.style.overflow = 'auto'; }, 1000);
+        }
+    </script>
+</body>
+</html># para-usted-
